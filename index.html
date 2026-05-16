@@ -1,0 +1,203 @@
+{% extends 'admin/layout.html' %}
+
+{% block konten %}
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Montserrat:wght@200;400;700&display=swap" rel="stylesheet">
+
+<style>
+    /* Tambahan agar Navbar menjadi Kuning/Emas */
+    .nav-link {
+        color: #dab01b !important;
+        opacity: 1 !important;
+    }
+    
+    .navbar-brand, .nav-link i {
+        color: #dab01b !important;
+    }
+
+    /* 1. HERO SECTION & VIDEO BACKGROUND (Full Screen) */
+    .hero-fullscreen {
+        height: 100vh; 
+        width: 100vw !important;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        margin-top: -40px; 
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: 0; 
+        background-color: black;
+        margin-bottom: 30px;
+    }
+
+    .hero-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: 1;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+    }
+
+    .video-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+        z-index: 2;
+    }
+
+    /* 2. TEXT CONTENT STYLING (Gaya Font Baru) */
+    .hero-content {
+        position: relative;
+        z-index: 3;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-family: 'Cinzel', serif; /* Font Cinematic */
+        font-size: 5.5rem;
+        font-weight: 900;
+        color: #dab01b; 
+        text-transform: uppercase;
+        letter-spacing: 18px; /* Spasi lebih lebar agar mewah */
+        margin: 0;
+        text-shadow: 0px 4px 20px rgba(0,0,0,0.8);
+        line-height: 1.1;
+    }
+
+    .divider {
+        width: 120px;
+        height: 2px;
+        background-color: #dab01b;
+        margin: 25px auto;
+    }
+
+    .hero-description p {
+        font-family: 'Cormorant Garamond', serif; /* Font Klasik/Elegant */
+        font-size: 1.6rem;
+        font-style: italic;
+        font-weight: 300;
+        color: #dab01b;
+        letter-spacing: 2px;
+        margin-top: 8px;
+        opacity: 0.9;
+    }
+
+    .highlight-text {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400 !important;
+        font-style: normal !important;
+        font-size: 0.9rem !important;
+        margin-top: 25px !important;
+        letter-spacing: 8px !important;
+        text-transform: uppercase;
+        border-top: 1px solid rgba(218, 176, 27, 0.3);
+        display: inline-block;
+        padding-top: 15px;
+    }
+
+    /* --- ANIMASI SLIDE MUNCUL --- */
+    @keyframes slideUpFade {
+        from {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-slide {
+        opacity: 0;
+        animation: slideUpFade 1s ease-out forwards;
+    }
+
+    .delay-1 { animation-delay: 0.3s; }
+    .delay-2 { animation-delay: 0.6s; }
+    .delay-3 { animation-delay: 0.9s; }
+    .delay-4 { animation-delay: 1.2s; }
+
+    /* 3. FLOATING BUBBLES */
+    .bubble-container {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        z-index: 9999;
+    }
+
+    .bubble {
+        background-color: #dab01b;
+        color: black;
+        padding: 12px 25px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        font-size: 0.9rem;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        animation: float 3s ease-in-out infinite;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .bubble:hover {
+        transform: scale(1.1) translateY(-5px);
+        background-color: #fff;
+        color: #dab01b;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-15px); }
+    }
+
+    @media (max-width: 768px) {
+        .hero-title { font-size: 2.8rem; letter-spacing: 6px; }
+        .hero-description p { font-size: 1.1rem; }
+        .bubble-container { bottom: 20px; right: 20px; }
+        .hero-fullscreen { height: 70vh; }
+    }
+</style>
+
+<header class="hero-fullscreen">
+    <video autoplay muted loop playsinline class="hero-video">
+        <source src="{{ url_for('static', filename='img/resonancetrilogy.mp4') }}" type="video/mp4">
+        Browser Anda tidak mendukung tag video.
+    </video>
+
+    <div class="video-overlay"></div>
+
+    <div class="hero-content">
+        <h1 class="hero-title animate-slide delay-1">RESONANCE TRILOGY</h1>
+        <div class="divider animate-slide delay-2"></div>
+        <div class="hero-description">
+            <p class="animate-slide delay-3">Crafting stories that echo through time</p>
+            <p class="animate-slide delay-3">Resonating visions a timeless trilogy</p>
+            <p class="highlight-text animate-slide delay-4">Film | Visual Art | Storytelling</p>
+        </div>
+    </div>
+</header>
+
+<div class="bubble-container">
+    <a href="https://wa.me/+6285325016969" class="bubble" target="_blank">Admin Productions</a>
+    <a href="https://wa.me/+6285325016969" class="bubble" target="_blank">Admin Finance</a>
+</div>
+{% endblock %}
