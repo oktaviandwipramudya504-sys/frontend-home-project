@@ -2,7 +2,7 @@
 
 Selamat datang di repositori modul frontend **Resonance Trilogy**. Kode ini merupakan berkas *template* Jinja2 yang berfungsi sebagai modul halaman utama (*Hero Landing Page*) berestetika mewah (*luxury cinematic theme*) untuk platform web manajemen atau profil produksi milik Resonance Trilogy.
 
-## 📜 Deskripsi Struktur Kode
+## Deskripsi Struktur Kode
 
 Berkas ini mengintegrasikan komponen frontend modern yang dibungkus di dalam ekosistem backend Python berbasis kerangka kerja **Flask**:
 - **Arsitektur Template:** Menggunakan pewarisan templat (Jinja2 Template Inheritance) `{% extends 'admin/layout.html' %}` untuk menjaga konsistensi komponen navigasi (*sidebar/navbar*).
@@ -14,7 +14,7 @@ Berkas ini mengintegrasikan komponen frontend modern yang dibungkus di dalam eko
 
 ---
 
-## ✨ Fitur Utama
+## Fitur Utama
 
 1. **Luxury Gold & Dark Aesthetic:** Kustomisasi kelas CSS global yang memaksa elemen navbar bawaan mengadopsi warna emas mewah (`#dab01b`) agar serasi dengan konsep jenama (*branding*).
 2. **Cinematic Animation System:** Efek animasi *fade-in slide-up* beruntun (`delay-1` hingga `delay-4`) menggunakan CSS Keyframes untuk memberikan kesan transisi panggung sinema saat halaman dimuat.
@@ -25,7 +25,7 @@ Berkas ini mengintegrasikan komponen frontend modern yang dibungkus di dalam eko
 
 ---
 
-## 🛠️ Struktur Komponen Dokumen
+##  Struktur Komponen Dokumen
 
 ```text
 ├── CSS Inclusions (Google Fonts Hub)
